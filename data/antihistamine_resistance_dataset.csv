@@ -1,3 +1,4 @@
+
 Age,Gender,Allergy_Type,Duration_Allergy,Antihistamine_Type,Co_morbidities,Previous_Use,Response
 34,Male,Seasonal,70,2nd_gen,Eczema,Short_term,0
 46,Male,Drug,34,1st_gen,Eczema,Short_term,0
