@@ -1,0 +1,296 @@
+{
+  "model_name": "Antihistamine Resistance Soft Voting Classifier",
+  "pipeline_steps": [
+    "StandardScaler (Numerical)",
+    "OneHotEncoder (Categorical)",
+    "VotingClassifier (Soft)"
+  ],
+  "algorithms": [
+    {
+      "name": "Logistic Regression",
+      "weight": 0.2,
+      "solver": "liblinear"
+    },
+    {
+      "name": "Random Forest Classifier",
+      "weight": 0.4,
+      "n_estimators": 100
+    },
+    {
+      "name": "XGBoost Classifier",
+      "weight": 0.4,
+      "eval_metric": "logloss"
+    }
+  ],
+  "ensemble_metrics": {
+    "accuracy": 0.9825,
+    "precision": 0.9783,
+    "recall": 1.0,
+    "f1_score": 0.989,
+    "roc_auc": 1.0,
+    "confusion_matrix": [
+      [
+        11,
+        1
+      ],
+      [
+        0,
+        45
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "f1-score": 0.9565217391304348,
+        "support": 12.0
+      },
+      "1": {
+        "precision": 0.9782608695652174,
+        "recall": 1.0,
+        "f1-score": 0.989010989010989,
+        "support": 45.0
+      },
+      "accuracy": 0.9824561403508771,
+      "macro avg": {
+        "precision": 0.9891304347826086,
+        "recall": 0.9583333333333333,
+        "f1-score": 0.9727663640707119,
+        "support": 57.0
+      },
+      "weighted avg": {
+        "precision": 0.982837528604119,
+        "recall": 0.9824561403508771,
+        "f1-score": 0.9821711469308725,
+        "support": 57.0
+      }
+    },
+    "test_sample_count": 57,
+    "train_sample_count": 228
+  },
+  "base_model_metrics": {
+    "Logistic Regression": {
+      "accuracy": 0.9825,
+      "precision": 1.0,
+      "recall": 0.9778,
+      "f1_score": 0.9888,
+      "roc_auc": 0.9963
+    },
+    "Random Forest": {
+      "accuracy": 0.9649,
+      "precision": 0.9574,
+      "recall": 1.0,
+      "f1_score": 0.9783,
+      "roc_auc": 0.9981
+    },
+    "XGBoost": {
+      "accuracy": 0.9825,
+      "precision": 0.9783,
+      "recall": 1.0,
+      "f1_score": 0.989,
+      "roc_auc": 1.0
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "Duration_Allergy",
+      "raw_name": "num__Duration_Allergy",
+      "rf_importance": 0.1711,
+      "xgb_importance": 0.12,
+      "lr_coefficient": 1.1143
+    },
+    {
+      "feature": "Co_morbidities_eczema",
+      "raw_name": "cat__Co_morbidities_eczema",
+      "rf_importance": 0.1329,
+      "xgb_importance": 0.1923,
+      "lr_coefficient": -1.5526
+    },
+    {
+      "feature": "Antihistamine_Type_1st_gen",
+      "raw_name": "cat__Antihistamine_Type_1st_gen",
+      "rf_importance": 0.1285,
+      "xgb_importance": 0.2831,
+      "lr_coefficient": 2.4798
+    },
+    {
+      "feature": "Previous_Use_short_term",
+      "raw_name": "cat__Previous_Use_short_term",
+      "rf_importance": 0.1209,
+      "xgb_importance": 0.0,
+      "lr_coefficient": -1.1709
+    },
+    {
+      "feature": "Antihistamine_Type_2nd_gen",
+      "raw_name": "cat__Antihistamine_Type_2nd_gen",
+      "rf_importance": 0.1205,
+      "xgb_importance": 0.0,
+      "lr_coefficient": -1.3081
+    },
+    {
+      "feature": "Previous_Use_long_term",
+      "raw_name": "cat__Previous_Use_long_term",
+      "rf_importance": 0.1172,
+      "xgb_importance": 0.3201,
+      "lr_coefficient": 2.3426
+    },
+    {
+      "feature": "Age",
+      "raw_name": "num__Age",
+      "rf_importance": 0.0806,
+      "xgb_importance": 0.0133,
+      "lr_coefficient": -0.1094
+    },
+    {
+      "feature": "Co_morbidities_asthma",
+      "raw_name": "cat__Co_morbidities_asthma",
+      "rf_importance": 0.0324,
+      "xgb_importance": 0.0,
+      "lr_coefficient": 1.5037
+    },
+    {
+      "feature": "Co_morbidities_multiple",
+      "raw_name": "cat__Co_morbidities_multiple",
+      "rf_importance": 0.0285,
+      "xgb_importance": 0.0463,
+      "lr_coefficient": 1.2206
+    },
+    {
+      "feature": "Allergy_Type_Other",
+      "raw_name": "cat__Allergy_Type_Other",
+      "rf_importance": 0.0127,
+      "xgb_importance": 0.0036,
+      "lr_coefficient": 0.0605
+    },
+    {
+      "feature": "Allergy_Type_Seasonal",
+      "raw_name": "cat__Allergy_Type_Seasonal",
+      "rf_importance": 0.0105,
+      "xgb_importance": 0.0199,
+      "lr_coefficient": 0.4392
+    },
+    {
+      "feature": "Allergy_Type_Food",
+      "raw_name": "cat__Allergy_Type_Food",
+      "rf_importance": 0.0101,
+      "xgb_importance": 0.0,
+      "lr_coefficient": 0.1466
+    },
+    {
+      "feature": "Gender_Female",
+      "raw_name": "cat__Gender_Female",
+      "rf_importance": 0.0099,
+      "xgb_importance": 0.0013,
+      "lr_coefficient": 0.6862
+    },
+    {
+      "feature": "Allergy_Type_Dust",
+      "raw_name": "cat__Allergy_Type_Dust",
+      "rf_importance": 0.0083,
+      "xgb_importance": 0.0,
+      "lr_coefficient": 0.1995
+    },
+    {
+      "feature": "Allergy_Type_Drug",
+      "raw_name": "cat__Allergy_Type_Drug",
+      "rf_importance": 0.0081,
+      "xgb_importance": 0.0,
+      "lr_coefficient": 0.3259
+    },
+    {
+      "feature": "Gender_Male",
+      "raw_name": "cat__Gender_Male",
+      "rf_importance": 0.008,
+      "xgb_importance": 0.0,
+      "lr_coefficient": 0.4855
+    }
+  ],
+  "feature_schema": {
+    "numerical": {
+      "Age": {
+        "min": 18,
+        "max": 75,
+        "default": 30
+      },
+      "Duration_Allergy": {
+        "min": 1,
+        "max": 240,
+        "default": 60
+      }
+    },
+    "categorical": {
+      "Gender": [
+        "Female",
+        "Male"
+      ],
+      "Allergy_Type": [
+        "Drug",
+        "Dust",
+        "Food",
+        "Other",
+        "Seasonal"
+      ],
+      "Antihistamine_Type": [
+        "1st_gen",
+        "2nd_gen"
+      ],
+      "Co_morbidities": [
+        "asthma",
+        "eczema",
+        "multiple",
+        "None"
+      ],
+      "Previous_Use": [
+        "long_term",
+        "short_term"
+      ]
+    }
+  },
+  "sample_cases": [
+    {
+      "id": "case-1-dust-short",
+      "title": "Example 1: Young Adult, Dust Allergy",
+      "description": "30yo female with dust allergy, 2nd gen antihistamine, short term use.",
+      "patient_data": {
+        "Age": 30,
+        "Gender": "Female",
+        "Allergy_Type": "Dust",
+        "Duration_Allergy": 60,
+        "Antihistamine_Type": "2nd_gen",
+        "Co_morbidities": "None",
+        "Previous_Use": "short_term"
+      },
+      "expected_class": 1
+    },
+    {
+      "id": "case-2-seasonal-long",
+      "title": "Example 2: Chronic Allergy & Asthma",
+      "description": "55yo male with seasonal allergy, asthma, 1st gen antihistamine, long term use.",
+      "patient_data": {
+        "Age": 55,
+        "Gender": "Male",
+        "Allergy_Type": "Seasonal",
+        "Duration_Allergy": 200,
+        "Antihistamine_Type": "1st_gen",
+        "Co_morbidities": "asthma",
+        "Previous_Use": "long_term"
+      },
+      "expected_class": 1
+    },
+    {
+      "id": "case-3-responsive",
+      "title": "Example 3: Responsive Patient (Short Exposure)",
+      "description": "25yo female with mild dust allergy, 18-day duration, eczema, short term 2nd gen antihistamine.",
+      "patient_data": {
+        "Age": 25,
+        "Gender": "Female",
+        "Allergy_Type": "Dust",
+        "Duration_Allergy": 18,
+        "Antihistamine_Type": "2nd_gen",
+        "Co_morbidities": "eczema",
+        "Previous_Use": "short_term"
+      },
+      "expected_class": 0
+    }
+  ]
+}
